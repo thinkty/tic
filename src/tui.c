@@ -1,7 +1,7 @@
 
 #include "tui.h"
 
-int init_tui()
+int tui_init()
 {
 	initscr();
 
@@ -12,12 +12,12 @@ int init_tui()
 	return OK;
 }
 
-void end_tui()
+void tui_end()
 {
 	endwin();
 }
 
-int rndr_addr(const char * addr, size_t addr_len)
+int tui_rndr_conn(const char * addr, size_t addr_len)
 {
 	return OK;
 }

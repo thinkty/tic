@@ -4,28 +4,28 @@
 #include <ncurses.h>
 
 /*!
- * \fn int init_tui ()
+ * \fn int tui_init ()
  * \brief Starts curses mode.
  * \return OK if success and ERR on failure.
  * 
  * Disables line buffering, echoing on getch, and enable keypad keys (F1, F2, arrow keys, etc..).
  */
-int init_tui();
+int tui_init();
 
 /*!
- * \fn void end_tui ()
+ * \fn void tui_end ()
  * \brief Ends curses mode.
  * \return void
  */
-void end_tui();
+void tui_end();
 
 /*!
- * \fn int rndr_addr (const char * addr, size_t addr_len)
+ * \fn int tui_rndr_conn (const char * addr, size_t addr_len)
  * \brief Render window to accept IRC server address and save it to the given buffer.
  * \param addr     A buffer to store the server address.
  * \param addr_len Length of the buffer.
  * \return OK on success and ERR on failure.
  */
-int rndr_addr(const char * addr, size_t addr_len);
+int tui_rndr_conn(const char * addr, size_t addr_len);
 
 #endif
