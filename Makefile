@@ -3,20 +3,18 @@
 
 CC=gcc
 CFLAGS=-g -Wall -I$(IDIR)
-LDLIBS=-lncurses
-OUTPUT=sudoku
+LDLIBS=-lcurses -lircclient
+OUTPUT=tic
 ROOTDIR=.
-IDIR =$(ROOTDIR)/include
-SDIR =$(ROOTDIR)/src
-ODIR =$(ROOTDIR)/obj
+IDIR=$(ROOTDIR)/include
+SDIR=$(ROOTDIR)/src
+ODIR=$(ROOTDIR)/obj
 
-_DEPS = sudoku.h file.h solve.h
-DEPS = $(addprefix $(IDIR)/,$(_DEPS))
+_DEPS=tui.h irc.h
+DEPS=$(addprefix $(IDIR)/,$(_DEPS))
 
-_OBJS = main.o sudoku.o file.o solve.o
-OBJS = $(addprefix $(ODIR)/,$(_OBJS))
-
-all: $(OUTPUT)
+_OBJS=main.o tui.o irc.o
+OBJS=$(addprefix $(ODIR)/,$(_OBJS))
 
 $(OUTPUT): $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -o $@ $^
